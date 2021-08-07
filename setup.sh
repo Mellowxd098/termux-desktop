@@ -41,7 +41,7 @@ banner() {
 		${RED}│${GREEN}░░░░█░░█▀▀░█▀▄░█░█░█░█░▄▀▄░░░█░█░█▀▀░▀▀█░█▀▄░░█░░█░█░█▀▀░░${RED}│
 		${RED}│${GREEN}░░░░▀░░▀▀▀░▀░▀░▀░▀░▀▀▀░▀░▀░░░▀▀░░▀▀▀░▀▀▀░▀░▀░░▀░░▀▀▀░▀░░░░${RED}│
 		${RED}└──────────────────────────────────────────────────────────┘
-		${BLUE}By : Aditya Shakya // @adi1090x
+		${BLUE}By : Mellowxd // @Mellowxd098
 	EOF
 }
 
@@ -55,7 +55,7 @@ usage() {
 ## Update, X11-repo, Program Installation
 _pkgs=(bc bmon calc calcurse curl dbus desktop-file-utils elinks feh fontconfig-utils fsmon \
 		geany git gtk2 gtk3 htop-legacy imagemagick jq leafpad man mpc mpd mutt ncmpcpp \
-		ncurses-utils neofetch netsurf obconf openbox openssl-tool polybar ranger rofi \
+		ncurses-utils neofetch dosbox netsurf otter-browser obconf openbox openssl-tool polybar ranger rofi \
 		startup-notification termux-api thunar tigervnc vim wget xarchiver xbitmaps xcompmgr \
 		xfce4-settings xfce4-terminal xmlstarlet xorg-font-util xorg-xrdb zsh)
 
@@ -237,7 +237,7 @@ setup_vnc() {
 
 ## Create Launch Script
 setup_launcher() {
-	file="$HOME/.local/bin/startdesktop"
+	file="$HOME/.local/bin/sd"
 	if [[ -f "$file" ]]; then
 		rm -rf "$file"
 	fi
@@ -251,16 +251,16 @@ setup_launcher() {
 
 		# Start VNC Server
 		if [[ \$(pidof Xvnc) ]]; then
-		    echo -e "\\n[!] Server Already Running."
+		    echo -e "\\n[!] Already Running One."
 		    { vncserver -list; echo; }
-		    read -p "Kill VNC Server? (Y/N) : "
+		    read -p "Kill That One? (Y/N) : "
 		    if [[ "\$REPLY" == "Y" || "\$REPLY" == "y" ]]; then
 		        { killall Xvnc; echo; }
 		    else
 		        echo
 		    fi
 		else
-		    echo -e "\\n[*] Starting VNC Server..."
+		    echo -e "\\n[*] Making New One"
 		    vncserver
 		fi
 	_EOF_
@@ -273,7 +273,7 @@ setup_launcher() {
 post_msg() {
 	echo -e ${GREEN}"\n[*] ${RED}Termux Desktop ${GREEN}Installed Successfully.\n"
 	cat <<- _MSG_
-		[-] Restart termux and enter ${ORANGE}startdesktop ${GREEN}command to start the VNC server.
+		[-] Restart termux and enter ${ORANGE}sd ${GREEN}command to start the VNC server.
 		[-] In VNC client, enter ${ORANGE}127.0.0.1:5901 ${GREEN}as Address and Password you created to connect.	
 		[-] To connect via PC over Wifi or Hotspot, use it's IP, ie: ${ORANGE}192.168.43.1:5901 ${GREEN}to connect. Also, use TigerVNC client.	
 		[-] Make sure you enter the correct port. ie: If server is running on ${ORANGE}Display :2 ${GREEN}then port is ${ORANGE}5902 ${GREEN}and so on.
