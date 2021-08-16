@@ -6,4 +6,4 @@ cd termux-desktop
 chmod +x setup.sh
 ./setup.sh --install
 
-startdesktop 
+sd
